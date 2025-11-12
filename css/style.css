@@ -465,8 +465,9 @@ h1, h2, h3 {
     font-size: 0.9rem;
 }
 
+
 /* =================================================== */
-/* === 7. NUEVA SECCIÓN: FORMULARIO + FARO LADO A LADO (SOLUCIÓN FINAL) === */
+/* === 7. NUEVA SECCIÓN: FORMULARIO + FARO LADO A LADO (SOLUCIÓN SUPER-ESPECÍFICA) === */
 /* =================================================== */
 
 .section-contact-combined {
@@ -474,7 +475,6 @@ h1, h2, h3 {
     background-color: var(--color-card-bg); 
 }
 .contact-combined-container {
-    /* Mantenemos las reglas de Flexbox para que los dos bloques (Formulario e Imagen) se queden lado a lado */
     display: flex;
     justify-content: center; 
     align-items: flex-start; 
@@ -484,30 +484,16 @@ h1, h2, h3 {
     flex-wrap: wrap; 
 }
 
-/* Reglas del contenedor del Formulario y el Título */
-.contact-form-block {
-    width: 450px; /* Ancho fijo para el formulario */
-    max-width: 100%; 
-    text-align: left; 
-}
-.contact-form-block .section-title {
-    text-align: left; 
-    margin-bottom: 30px;
-}
-
-/* 1. CORRECCIÓN PRINCIPAL: Asegurar el ancho y el apilamiento de los campos */
-.contact-form {
-    display: flex; /* Mantenemos flex para que los hijos sigan la dirección de columna */
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-}
+/* 1. CORRECCIÓN PRINCIPAL DE CAMPOS (Selector específico para anular conflictos) */
 .contact-form input[type="text"], 
 .contact-form input[type="email"],
 .contact-form textarea {
-    /* Forzamos el ancho y el display para que se apilen correctamente y anulen conflictos */
+    /* Las siguientes reglas fuerzan el apilamiento y el ancho */
     width: 100% !important; 
     display: block !important;
+    box-sizing: border-box !important; /* Asegura que el padding no cause desbordamiento */
+    margin-bottom: 0; /* Asegura que no haya márgenes raros */
+    /* Mantenemos el estilo visual */
     padding: 12px;
     border-radius: 8px;
     border: 1px solid #ccc;
@@ -519,8 +505,24 @@ h1, h2, h3 {
     resize: vertical;
 }
 
+/* 2. Reglas del contenedor del Formulario (Controles de Layout) */
+.contact-form-block {
+    width: 450px; /* Ancho fijo para el formulario */
+    max-width: 100%; 
+    text-align: left; 
+}
+.contact-form {
+    display: flex; 
+    flex-direction: column;
+    gap: 15px; /* Espacio entre los campos apilados */
+    width: 100%;
+}
+.contact-form-block .section-title {
+    text-align: left; 
+    margin-bottom: 30px;
+}
 
-/* 2. Reglas del bloque de Imagen */
+/* 3. Reglas del bloque de Imagen */
 .faro-image-block {
     width: 380px; 
     max-width: 100%; 
@@ -713,6 +715,7 @@ h1, h2, h3 {
         padding: 40px 20px 10px;
     }
 }
+
 
 
 
