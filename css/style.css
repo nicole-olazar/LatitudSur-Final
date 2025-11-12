@@ -654,27 +654,8 @@ h1, h2, h3 {
     }
 }
 
-/* Al final de css/style.css, en la sección de Media Queries */
 
-@media (max-width: 900px) {
-    /* Forzar que se apilen antes si la pantalla es más pequeña */
-    .contact-combined-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
-    }
-    .contact-form-block {
-        /* Permite que el título se centre en el layout de columna */
-        text-align: center;
-        max-width: 90%; 
-    }
-    .contact-form-block .section-title {
-        text-align: center;
-    }
-    .faro-image-block {
-        max-width: 90%;
-    }
-}
+
 
 
 
