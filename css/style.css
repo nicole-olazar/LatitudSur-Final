@@ -465,34 +465,33 @@ h1, h2, h3 {
     font-size: 0.9rem;
 }
 
+
 /* =================================================== */
 /* === 7. NUEVA SECCIÓN: FORMULARIO + FARO LADO A LADO === */
 /* =================================================== */
 
 .section-contact-combined {
     padding: 80px 40px;
-    background-color: var(--color-card-bg); 
+    background-color: var(--color-card-bg); /* Fondo gris/beige claro */
 }
 .contact-combined-container {
     display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Alineamos arriba */
+    justify-content: center; /* Centra el bloque total */
+    align-items: flex-start; 
     gap: 60px;
     max-width: 1100px;
     margin: 0 auto;
-    flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
+    flex-wrap: wrap; /* Permite que los elementos se apilen en móvil */
 }
 .contact-form-block {
-    /* Eliminamos 'flex: 1' para controlar mejor el ancho */
     width: 450px; /* Ancho fijo para el formulario */
-    max-width: 100%; /* Asegura que sea responsivo */
+    max-width: 100%; 
 }
 .contact-form-block .section-title {
     text-align: left;
     margin-bottom: 30px;
 }
-
-/* Reutilizamos el estilo del formulario que ya tenías */
+/* Estilos del formulario reutilizados */
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -512,9 +511,8 @@ h1, h2, h3 {
 }
 
 .faro-image-block {
-    /* Eliminamos 'flex: 1' */
     width: 380px; /* Ancho fijo para el bloque de imagen */
-    max-width: 100%; /* Asegura que sea responsivo */
+    max-width: 100%; 
     text-align: center;
 }
 .faro-combined-image {
@@ -536,18 +534,15 @@ h1, h2, h3 {
 /* =================================================== */
 
 .footer {
-    background-color: var(--color-primary); /* Azul marino de fondo */
+    background-color: var(--color-primary); 
     color: var(--color-white);
     padding: 60px 40px 10px;
 }
 
-/* Contenedor del footer simplificado (solo info) */
 .footer-container-simplified {
     max-width: 1200px;
     margin: 0 auto;
     padding-bottom: 40px;
-    
-    /* Centrar la información */
     display: flex;
     justify-content: center;
 }
@@ -555,16 +550,16 @@ h1, h2, h3 {
 .footer-info-group {
     display: flex;
     justify-content: space-between;
-    gap: 60px; /* Separación entre los bloques de info */
+    gap: 60px; 
     max-width: 900px;
     width: 100%;
 }
 
 .contact-details {
-    /* Aquí se mantienen los estilos de texto para Dirección, Contacto, Horarios */
+    /* Mantiene los estilos de texto */
 }
 .contact-title {
-    color: var(--color-accent); /* Títulos en celeste */
+    color: var(--color-accent); 
     font-size: 1.2rem;
     margin-bottom: 10px;
     font-weight: 600;
@@ -572,7 +567,7 @@ h1, h2, h3 {
 .contact-details p {
     margin: 5px 0;
     font-size: 0.95rem;
-    color: #c0c0c0; /* Texto gris claro */
+    color: #c0c0c0; 
 }
 .contact-details .email {
     color: var(--color-white);
@@ -588,6 +583,11 @@ h1, h2, h3 {
 .footer-bottom p {
     margin: 5px 0;
 }
+
+
+
+
+
 /* =================================================== */
 /* === MEDIA QUERIES (PARA ADAPTAR A DISPOSITIVOS) === */
 /* =================================================== */
@@ -683,65 +683,4 @@ h1, h2, h3 {
 }
 
 
-/* =================================================== */
-/* === 7. NUEVA SECCIÓN: FORMULARIO + FARO LADO A LADO === */
-/* =================================================== */
 
-.section-contact-combined {
-    padding: 80px 40px;
-    background-color: var(--color-card-bg); /* Fondo gris/beige claro para contraste */
-}
-.contact-combined-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-.contact-form-block {
-    flex: 1;
-    max-width: 500px;
-}
-.contact-form-block .section-title {
-    text-align: left;
-    margin-bottom: 30px;
-}
-
-/* Reutilizamos el estilo del formulario que ya tenías */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-}
-.contact-form input, .contact-form textarea {
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-    color: #333;
-}
-.contact-form textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-.faro-image-block {
-    flex: 1;
-    max-width: 350px;
-    text-align: center;
-}
-.faro-combined-image {
-    width: 100%;
-    height: 350px; /* Altura definida para la imagen del faro */
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-.faro-caption {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--color-primary);
-
-}
