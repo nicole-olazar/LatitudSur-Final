@@ -466,74 +466,82 @@ h1, h2, h3 {
 }
 
 /* =================================================== */
-/* === 7. NUEVA SECCIÓN: FORMULARIO + FARO LADO A LADO (SOLUCIÓN DEFINITIVA) === */
+/* === 7. NUEVA SECCIÓN: FORMULARIO + FARO LADO A LADO (SOLUCIÓN FINAL) === */
 /* =================================================== */
 
 .section-contact-combined {
     padding: 80px 40px;
     background-color: var(--color-card-bg); 
-    text-align: center; /* Centrar el título de la sección */
 }
 .contact-combined-container {
-    /* La clave para que se mantengan lado a lado en escritorio */
+    /* Mantenemos las reglas de Flexbox para que los dos bloques (Formulario e Imagen) se queden lado a lado */
     display: flex;
-    justify-content: center; /* Centra el bloque total en el centro de la pantalla */
-    align-items: flex-start; /* Alinea arriba para evitar que la imagen estire el formulario */
+    justify-content: center; 
+    align-items: flex-start; 
     gap: 60px;
     max-width: 1100px;
-    margin: 0 auto; /* Centra el contenedor principal */
+    margin: 0 auto; 
     flex-wrap: wrap; 
 }
+
+/* Reglas del contenedor del Formulario y el Título */
 .contact-form-block {
-    width: 450px; /* Ancho deseado para el formulario */
+    width: 450px; /* Ancho fijo para el formulario */
     max-width: 100%; 
-    text-align: left; /* Alineamos el texto dentro del bloque a la izquierda */
+    text-align: left; 
 }
 .contact-form-block .section-title {
-    text-align: left; /* Mantenemos el título alineado a la izquierda */
+    text-align: left; 
     margin-bottom: 30px;
 }
-/* No necesitamos cambiar los estilos de input, textarea, etc., solo el layout */
 
+/* 1. CORRECCIÓN PRINCIPAL: Asegurar el ancho y el apilamiento de los campos */
+.contact-form {
+    display: flex; /* Mantenemos flex para que los hijos sigan la dirección de columna */
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+.contact-form input[type="text"], 
+.contact-form input[type="email"],
+.contact-form textarea {
+    /* Forzamos el ancho y el display para que se apilen correctamente y anulen conflictos */
+    width: 100% !important; 
+    display: block !important;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    color: #333;
+}
+.contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+
+/* 2. Reglas del bloque de Imagen */
 .faro-image-block {
-    width: 380px; /* Ancho deseado para el bloque de imagen */
+    width: 380px; 
     max-width: 100%; 
     text-align: center;
 }
-/* ... resto de estilos de la imagen se mantienen ... */
-
-
-/* ------------------------------------------------------------------ */
-/* UNA CORRECCIÓN MÁS EN LAS MEDIA QUERIES para asegurar el apilamiento */
-/* ------------------------------------------------------------------ */
-
-@media (max-width: 900px) {
-    /* Forzamos el apilamiento y centrado en pantallas más pequeñas */
-    .contact-combined-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
-    }
-    .contact-form-block {
-        max-width: 90%; 
-        text-align: center;
-    }
-    /* Volvemos a centrar el título del formulario en móvil */
-    .contact-form-block .section-title {
-        text-align: center;
-    }
-    /* Aseguramos que el contenido del formulario ocupe el ancho en móvil */
-    .contact-form {
-        max-width: 100%;
-        margin: 0 auto;
-    }
-    .faro-image-block {
-        max-width: 90%;
-    }
+.faro-combined-image {
+    width: 100%;
+    height: 350px; 
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.faro-caption {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-primary);
 }
 
+
 /* =================================================== */
-/* === 8. FOOTER SIMPLIFICADO (Captura 167 - Info) === */
+/* === 8. FOOTER SIMPLIFICADO === */
 /* =================================================== */
 
 .footer {
@@ -587,17 +595,20 @@ h1, h2, h3 {
     margin: 5px 0;
 }
 
+
 /* =================================================== */
-/* === MEDIA QUERIES (PARA ADAPTAR A DISPOSITIVOS) === */
+/* === MEDIA QUERIES (RESPONSIVE DESIGN) === */
 /* =================================================== */
 
 @media (max-width: 1250px) {
     .banner-logo-animated {
-        left: 40px; /* Acercar el logo al centro en pantallas medianas */
+        left: 40px; 
     }
 }
 
 @media (max-width: 1000px) {
+    
+    /* Reglas Generales */
     .mision-content {
         flex-direction: column;
         text-align: center;
@@ -630,17 +641,39 @@ h1, h2, h3 {
         max-width: 90%;
     }
 
-    .footer-container {
+    /* Reglas específicas para el FOOTER */
+    .footer-container-simplified {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .footer-info-group {
         flex-direction: column;
+        gap: 30px;
         text-align: center;
         align-items: center;
     }
-    .footer-info {
-        flex-direction: column;
-        gap: 30px;
-    }
     .contact-details {
-        padding-right: 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: 900px) {
+    /* Fuerzamos el apilamiento de la sección de contacto para que el formulario y la imagen no se rompan */
+    .contact-combined-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    /* El formulario y la imagen toman el máximo ancho permitido */
+    .contact-form-block {
+        max-width: 90%; 
+    }
+    /* Aseguramos que el título del formulario esté centrado en móvil */
+    .contact-form-block .section-title {
+        text-align: center;
+    }
+    .faro-image-block {
+        max-width: 90%;
     }
 }
 
@@ -652,16 +685,16 @@ h1, h2, h3 {
         padding: 15px 20px;
     }
     .nav-menu {
-        display: none; /* Ocultar menú en móvil para simplificar */
+        display: none; 
     }
     .banner-title {
         font-size: 2.5rem;
     }
     
     .banner-logo-animated {
-        top: 20px; /* Subir el logo */
-        left: 50%; /* Centrarlo */
-        transform: translateX(-50%) translateY(-20px); /* Ajustar el centrado y el inicio de la animación */
+        top: 20px; 
+        left: 50%; 
+        transform: translateX(-50%) translateY(-20px); 
     }
     .banner-overlay.is-visible .banner-logo-animated {
         transform: translateX(-50%) translateY(0);
@@ -680,10 +713,6 @@ h1, h2, h3 {
         padding: 40px 20px 10px;
     }
 }
-
-
-
-
 
 
 
