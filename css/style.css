@@ -561,20 +561,37 @@ h1, h2, h3 {
 /* === MEDIA QUERIES (PARA ADAPTAR A DISPOSITIVOS) === */
 /* =================================================== */
 
-@media (max-width: 1250px) {
-    .banner-logo-animated {
-        left: 40px; /* Acercar el logo al centro en pantallas medianas */
-    }
-}
+/* =================================================== */
+/* === MEDIA QUERIES (RESPONSIVE DESIGN) FINAL === */
+/* =================================================== */
 
+/* --- AJUSTES GENERALES PARA TABLETS Y MÓVILES (Menos de 1000px) --- */
 @media (max-width: 1000px) {
+    
+    body {
+        padding-top: 70px; /* Ajuste para el header fijo en móvil */
+    }
+    .header-container {
+        padding: 15px 20px;
+    }
+    .nav-menu {
+        /* Puedes ocultar o crear un menú hamburguesa si lo necesitas */
+        display: none; 
+    }
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    /* 1. SECCIÓN MISIÓN (Te facilitamos el viajar) */
     .mision-content {
-        flex-direction: column;
+        flex-direction: column; /* Apilamiento vertical */
         text-align: center;
+        padding: 0;
     }
     .mision-text, .mision-image-container {
         max-width: 90%;
-        text-align: center;
+        margin: 0 auto;
     }
     .mision-text .section-title {
         text-align: center;
@@ -582,16 +599,31 @@ h1, h2, h3 {
     .mision-icon {
         margin: 0 auto 10px;
     }
+    
+    /* 2. SECCIONES PAQUETES */
+    .packages-grid {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .package-card {
+        width: 90%; /* Hace que las tarjetas ocupen casi todo el ancho */
+        margin: 0 auto;
+    }
 
+    /* 3. SECCIÓN SERVICIOS AGENCIA (Nos encargamos...) */
     .services-grid {
-        grid-template-columns: 1fr; /* 1 columna */
+        grid-template-columns: 1fr; /* Una sola columna para apilar */
+        max-width: 90%;
+        margin: 0 auto;
+        gap: 30px;
     }
     .service-item {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: column; /* Apila imagen y texto dentro del item */
         align-items: center;
+        text-align: center;
     }
-    
+
+    /* 4. SECCIÓN TESTIMONIOS */
     .testimonials-grid {
         flex-direction: column;
         align-items: center;
@@ -600,56 +632,72 @@ h1, h2, h3 {
         max-width: 90%;
     }
 
-    .footer-container {
+    /* 5. SECCIÓN CONTACTO Y FARO */
+    .contact-combined-container {
         flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    .contact-form-block {
+        width: 90%;
+        margin: 0 auto;
+        text-align: center; /* Centrar el bloque */
+    }
+    .contact-form-block .section-title {
+        text-align: center;
+    }
+    .faro-image-block {
+        width: 90%;
+    }
+
+    /* 6. FOOTER */
+    .footer-container-simplified {
+        padding: 20px;
+    }
+    .footer-info-group {
+        flex-direction: column;
+        gap: 30px;
         text-align: center;
         align-items: center;
     }
-    .footer-info {
-        flex-direction: column;
-        gap: 30px;
-    }
-    .contact-details {
-        padding-right: 0;
-    }
 }
 
+
+/* --- AJUSTES FINALES PARA TELÉFONOS (Menos de 768px) --- */
 @media (max-width: 768px) {
-    body {
-        padding-top: 70px;
-    }
-    .header-container {
-        padding: 15px 20px;
-    }
-    .nav-menu {
-        display: none; /* Ocultar menú en móvil para simplificar */
-    }
+
     .banner-title {
         font-size: 2.5rem;
     }
     
+    /* Ajuste para centrar y dimensionar el logo PNG en móvil */
     .banner-logo-animated {
-        top: 20px; /* Subir el logo */
-        left: 50%; /* Centrarlo */
-        transform: translateX(-50%) translateY(-20px); /* Ajustar el centrado y el inicio de la animación */
+        top: 20px; 
+        left: 50%; 
+        width: 200px;
+        transform: translateX(-50%) translateY(-20px); 
     }
     .banner-overlay.is-visible .banner-logo-animated {
         transform: translateX(-50%) translateY(0);
     }
     
-    .section-packages {
-        padding: 50px 20px;
+    .paquetes {
+        padding-left: 10px;
+        padding-right: 10px;
     }
-    .packages-grid {
-        gap: 20px;
-    }
-    .package-card {
-        width: 100%;
-    }
-    .footer {
-        padding: 40px 20px 10px;
+    .package-card, 
+    .testimonial-card,
+    .contact-form-block,
+    .faro-image-block {
+        width: 100%; /* Ocupan todo el ancho de la pantalla */
+        max-width: 100%;
+        margin: 0;
     }
 }
+
+
+
+
 
 
 /* =================================================== */
@@ -713,6 +761,7 @@ h1, h2, h3 {
     font-weight: 600;
     color: var(--color-primary);
 }
+
 
 
 
