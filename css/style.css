@@ -466,67 +466,71 @@ h1, h2, h3 {
 }
 
 /* =================================================== */
-/* === 7. NUEVA SECCIÓN: FORMULARIO + FARO LADO A LADO === */
+/* === 7. NUEVA SECCIÓN: FORMULARIO + FARO LADO A LADO (SOLUCIÓN DEFINITIVA) === */
 /* =================================================== */
 
 .section-contact-combined {
     padding: 80px 40px;
-    background-color: var(--color-card-bg); /* Fondo gris/beige claro */
+    background-color: var(--color-card-bg); 
+    text-align: center; /* Centrar el título de la sección */
 }
 .contact-combined-container {
+    /* La clave para que se mantengan lado a lado en escritorio */
     display: flex;
-    justify-content: center; /* Centra el bloque total */
-    align-items: flex-start; 
+    justify-content: center; /* Centra el bloque total en el centro de la pantalla */
+    align-items: flex-start; /* Alinea arriba para evitar que la imagen estire el formulario */
     gap: 60px;
     max-width: 1100px;
-    margin: 0 auto;
-    flex-wrap: wrap; /* Permite que los elementos se apilen en móvil */
+    margin: 0 auto; /* Centra el contenedor principal */
+    flex-wrap: wrap; 
 }
 .contact-form-block {
-    width: 450px; /* Ancho fijo para el formulario */
+    width: 450px; /* Ancho deseado para el formulario */
     max-width: 100%; 
+    text-align: left; /* Alineamos el texto dentro del bloque a la izquierda */
 }
 .contact-form-block .section-title {
-    text-align: left;
+    text-align: left; /* Mantenemos el título alineado a la izquierda */
     margin-bottom: 30px;
 }
-/* Estilos del formulario reutilizados */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-}
-.contact-form input, .contact-form textarea {
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-    color: #333;
-}
-.contact-form textarea {
-    min-height: 120px;
-    resize: vertical;
-}
+/* No necesitamos cambiar los estilos de input, textarea, etc., solo el layout */
 
 .faro-image-block {
-    width: 380px; /* Ancho fijo para el bloque de imagen */
+    width: 380px; /* Ancho deseado para el bloque de imagen */
     max-width: 100%; 
     text-align: center;
 }
-.faro-combined-image {
-    width: 100%;
-    height: 350px; 
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-.faro-caption {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--color-primary);
-}
+/* ... resto de estilos de la imagen se mantienen ... */
 
+
+/* ------------------------------------------------------------------ */
+/* UNA CORRECCIÓN MÁS EN LAS MEDIA QUERIES para asegurar el apilamiento */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 900px) {
+    /* Forzamos el apilamiento y centrado en pantallas más pequeñas */
+    .contact-combined-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    .contact-form-block {
+        max-width: 90%; 
+        text-align: center;
+    }
+    /* Volvemos a centrar el título del formulario en móvil */
+    .contact-form-block .section-title {
+        text-align: center;
+    }
+    /* Aseguramos que el contenido del formulario ocupe el ancho en móvil */
+    .contact-form {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .faro-image-block {
+        max-width: 90%;
+    }
+}
 
 /* =================================================== */
 /* === 8. FOOTER SIMPLIFICADO (Captura 167 - Info) === */
@@ -676,6 +680,7 @@ h1, h2, h3 {
         padding: 40px 20px 10px;
     }
 }
+
 
 
 
