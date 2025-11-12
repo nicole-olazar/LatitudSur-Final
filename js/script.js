@@ -58,16 +58,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // 4. MANEJO DEL FORMULARIO DE CONTACTO (Se mantiene desactivado para la integración con Salesforce)
-    /*
-    const formContacto = document.getElementById('formContacto');
+   // ... otros códigos JS ...
 
-    if (formContacto) {
-        formContacto.addEventListener('submit', (e) => {
-            e.preventDefault(); 
-            alert('¡Mensaje enviado! (Salesforce se encargará de esto)'); 
-            e.target.reset();
-        });
-    }
+// 4. MANEJO DEL FORMULARIO DE CONTACTO (DEBE ESTAR DESACTIVADO)
+const formContacto = document.getElementById('formContacto');
+
+if (formContacto) {
+    // ELIMINA O COMENTA ESTE BLOQUE
+    /* formContacto.addEventListener('submit', (e) => {
+        e.preventDefault(); 
+        alert('¡Mensaje enviado! (Salesforce se encargará de esto)'); 
+        e.target.reset();
+    });
     */
+}
+
 });
